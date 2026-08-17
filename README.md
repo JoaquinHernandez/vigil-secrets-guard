@@ -17,3 +17,12 @@ An ultra-fast, zero-dependency pre-commit credential detector designed to preven
 ### 1. Test Against the Included Vulnerable Sample
 ```bash
 python3 vigil_guard.py sample_code_test.py
+
+Scan Any File on Your System
+Bash
+python3 vigil_guard.py /path/to/your/code.py
+3. Integrate as an Automatic Git Pre-Commit Hook
+Prevent accidental leaks across any local repository by adding this single line into your .git/hooks/pre-commit file:
+
+Bash
+python3 /path/to/vigil_guard.py staged_files
