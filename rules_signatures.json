@@ -1,0 +1,41 @@
+{
+  "entropy_threshold": 4.5,
+  "min_entropy_length": 20,
+  "signatures": [
+    {
+      "id": "SEC-AWS-01",
+      "name": "AWS Access Key ID",
+      "regex": "(?<![A-Z0-9])[A-Z0-9]{20}(?![A-Z0-9])",
+      "prefix_match": "AKIA",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "SEC-KEY-02",
+      "name": "Private RSA/EC/OpenSSH Key Header",
+      "regex": "-----BEGIN (?:RSA|OPENSSH|EC|DSA|PGP)? ?PRIVATE KEY-----",
+      "prefix_match": null,
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "SEC-GH-03",
+      "name": "GitHub Personal Access Token",
+      "regex": "(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9_]{36,255}",
+      "prefix_match": null,
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "SEC-SLACK-04",
+      "name": "Slack API / Bot Webhook",
+      "regex": "https:\\/\\/hooks\\.slack\\.com\\/services\\/T[a-zA-Z0-9_]+\\/B[a-zA-Z0-9_]+\\/[a-zA-Z0-9_]+",
+      "prefix_match": null,
+      "severity": "HIGH"
+    },
+    {
+      "id": "SEC-DB-05",
+      "name": "Database Connection String with Credentials",
+      "regex": "(?:postgres|mysql|mongodb|redis):\\/\\/[^:]+:[^@]+@[a-zA-Z0-9_.-]+",
+      "prefix_match": null,
+      "severity": "HIGH"
+    }
+  ]
+}
